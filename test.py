@@ -1,6 +1,6 @@
 import unittest
 from character import Character
-from ship import Ship
+from ship import Sloop_ship
 
 class TestCharacter(unittest.TestCase):
     
@@ -44,16 +44,16 @@ class TestCharacter(unittest.TestCase):
 
 class TestShip(unittest.TestCase):
     def setUp(self):
-        self.ship = Ship('The Blachbeard', 100, [20, 30], speed_max=12.1, momentum=5.2, course=270, canons_max=120, canons=100, canons_range=300)
+        self.ship = Sloop_ship('The Blachbeard', 100, [20, 30], course=270, canons=100, country='england')
     
     def test_ship_creation(self):
-        self.assertEqual(self.ship.speed_max, 12.1)
+        self.assertEqual(self.ship.speed_max, 18)
         self.assertEqual(self.ship.speed, 0)
-        self.assertEqual(self.ship.momentum, 5.2)
+        self.assertEqual(self.ship.momentum, 3)
         self.assertEqual(self.ship.course, 270)
-        self.assertEqual(self.ship.canons_max, 120)
+        self.assertEqual(self.ship.canons_max, 60)
         self.assertEqual(self.ship.canons, 100)
-        self.assertEqual(self.ship.canons_range, 300)
+        self.assertEqual(self.ship.canons_range, 50)
 
 
 if __name__ == '__main__':

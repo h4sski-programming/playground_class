@@ -1,7 +1,7 @@
 import math
 
 class Character:
-    def __init__(self, name: str, hp: int, position: list[int, int] = [0, 0]) -> None:
+    def __init__(self, name: str, hp: int, position: list[float] = [0, 0]) -> None:
         self.name = name
         self.hp = hp
         self.alive = True

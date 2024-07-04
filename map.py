@@ -5,13 +5,15 @@ class Map:
     def __init__(self, game) -> None:
         self.cols = game.settings.map_grid[0]
         self.rows = game.settings.map_grid[1]
-        self.x_size = (game.settings.resolution[0] // self.cols)
-        self.y_size = (game.settings.resolution[1] // self.rows)
+        self.x_size = game.settings.map_grid_size
+        self.y_size = game.settings.map_grid_size
+        # self.x_size = (game.settings.resolution[0] // self.cols)
+        # self.y_size = (game.settings.resolution[1] // self.rows)
         self.grid = self.generate_grid()
         
     def draw(self, surface) -> None:
-        self.x_size = surface.get_width() // self.cols
-        self.y_size = surface.get_height() // self.rows
+        # self.x_size = surface.get_width() // self.cols
+        # self.y_size = surface.get_height() // self.rows
         # print(surface.get_width(), surface.get_height(), self.x_size, self.y_size)
         for x in range(self.cols):
             for y in range(self.rows):
@@ -30,3 +32,5 @@ class Map:
                 row.append(1 if random.random() < 0.85 else 0)
             grid.append(row)
         return grid
+    
+    # def get

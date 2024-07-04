@@ -3,6 +3,7 @@ import pygame
 from settings import Settings
 from map import Map
 from player import Player
+from ship import Sloop_ship, Brigantine_ship, Frigate_ship, Galeon_ship
 
 class Game:
     def __init__(self) -> None:
@@ -15,6 +16,12 @@ class Game:
         self.running = True
         self.map = Map(self)
         self.player = Player('player', 10)
+        self.enemys = [
+            Sloop_ship('e1', 10, [600,400], 'england', 270, 20),
+            Brigantine_ship('s1', 10, [640,360], 'netherland', 270, 20),
+            Frigate_ship('f1', 10, [800,240], 'france', 270, 20),
+            Galeon_ship('g1', 10, [740,120], 'spain', 270, 20),
+            ]
 
     def events(self):
         for event in pygame.event.get():
@@ -35,6 +42,8 @@ class Game:
         
         self.map.draw(self.middle_surface)
         self.player.draw(self.middle_surface)
+        for enemy in self.enemys:
+            enemy.draw(self.middle_surface)
         
         self.screen.blit(self.top_bar, (0, 0))
         self.screen.blit(self.middle_surface, (0, self.settings.top_bar_height))
